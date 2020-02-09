@@ -1,1 +1,10 @@
-console.log("this is react");
+import React from "react";
+import ReactDOM from "react-dom";
+
+
+const App = ()=>{
+    return <h1>Heloo World</h1>;
+
+}
+
+ReactDOM.render(<App/>, document.querySelector("#root"));
