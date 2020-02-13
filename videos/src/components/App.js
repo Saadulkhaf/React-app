@@ -12,7 +12,7 @@ class App extends React.Component{
                 q: term
             }
         })
-        this.setState({videos: response.data.items})
+        this.setState({videos: response.data.items});
         // console.log(term);
     };
 
@@ -20,7 +20,7 @@ class App extends React.Component{
         return(
             <div className="ui container">
                 <SearchBar onTermSubmit={this.onTermSubmit}/>
-                I have {this.state.videos.length} videos
+                I have {this.state.videoslength} videos
             </div>  
         );
     }
