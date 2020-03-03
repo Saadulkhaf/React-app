@@ -1,6 +1,15 @@
 import _ from 'lodash';
 import JsonPlaceHolder from '../apis/JsonPlaceHolder';
 
+export const fetchPostsAndUsers = () => {
+    return async (dispatch, getState) => {
+        await dispatch(fetchPosts());
+
+        const userIds = _.uniq(_.map(getState().posts, 'userId'));
+        userIds.forEach(id => dispatch(fetchUser(id)));
+    }
+}
+
 export const fetchPosts = () => {
     return async (dispatch, getState) => {
         const response = await JsonPlaceHolder.get('/posts');
