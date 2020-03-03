@@ -11,13 +11,20 @@ export const fetchPosts = () => {
 };
 
 export const fetchUser = (id) => {
-    return  (dispatch, getState) => {
-        _fetchUser(id, dispatch);
-    };
-};
+    return async (dispatch) => {
+        const response = await JsonPlaceHolder.get(`/users/${id}`);
+        dispatch({type: 'FETCH_USER', payload: response.data});
+    }
+}
 
-const _fetchUser = _.memoize(async(id, dispatch) => {
-    const response = await JsonPlaceHolder.get(`/users/${id}`);
+// export const fetchUser = (id) => {
+//     return  (dispatch, getState) => {
+//         _fetchUser(id, dispatch);
+//     };
+// };
 
-    dispatch({type: 'FETCH_USER', payload: response.data});
-});
+// const _fetchUser = _.memoize(async(id, dispatch) => {
+//     const response = await JsonPlaceHolder.get(`/users/${id}`);
+
+//     dispatch({type: 'FETCH_USER', payload: response.data});
+// });
