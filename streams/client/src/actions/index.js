@@ -1,6 +1,6 @@
 export const SignIn = () => {
     return{
-        type: 'SING_IN'
+        type: 'SIGN_IN'
     };
 };
 
