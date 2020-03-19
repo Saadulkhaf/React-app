@@ -9,6 +9,18 @@
       "title": "My stream 1",
       "description": "testing",
       "id": 2
+    },
+    {
+      "title": "Stream with id",
+      "description": "This should have userid",
+      "userId": "103271465383327796051",
+      "id": 3
+    },
+    {
+      "title": "Programmatic Routing",
+      "description": "Automatic boom ",
+      "userId": "103271465383327796051",
+      "id": 4
     }
   ]
 }
