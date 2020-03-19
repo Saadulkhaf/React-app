@@ -22,7 +22,7 @@ class SongsList extends React.Component {
     }
 
     render() {
-        // console.log(this.props.songs);
+        console.log(this.props);
         return (
         <div className="ui divided list">{this.renderList()}</div>
         );
@@ -30,8 +30,8 @@ class SongsList extends React.Component {
 };
 
 const mapStateToProps = (state) => {
-    // console.log(state);
+    console.log('aa',dispatch);
     return{songs: state.songs};
 };
 
-export default connect(mapStateToProps, {selectSong: selectSong })(SongsList);
+export default connect(null, {selectSong})(SongsList);
