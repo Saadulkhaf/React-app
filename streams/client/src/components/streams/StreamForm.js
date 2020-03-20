@@ -20,8 +20,8 @@ class StreamForm extends React.Component {
             {this.renderError(formProps.meta)}
             </div>
             
-        )
-    }
+        );
+    };
 
     onSubmit = (formValues) =>{
         this.props.onSubmit(formValues);
@@ -49,7 +49,7 @@ const validate = (formValues) => {
         errors.description = "Please Enter Description!"
     }
     return errors;
-}
+};
 
  export default reduxForm({
     form: 'StreamForm',
