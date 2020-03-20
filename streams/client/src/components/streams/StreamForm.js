@@ -28,7 +28,7 @@ class StreamForm extends React.Component {
     }
 
     render() {
-        // console.log(this.props);
+        // console.log('child',this.props);
         return (
             <form onSubmit={this.props.handleSubmit(this.onSubmit)}  className="ui form error">
                 <Field name="title" component={this.renderInput} label="Title"/>
@@ -53,5 +53,6 @@ const validate = (formValues) => {
 
  export default reduxForm({
     form: 'StreamForm',
-    validate: validate
+    validate: validate,
+    enableReinitialize: true
 })(StreamForm);
