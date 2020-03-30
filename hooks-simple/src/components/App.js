@@ -3,6 +3,12 @@ import React from 'react';
 class App extends React.Component {
     state = { resources: 'posts'}
 
+    renderhelper = () => {
+        return (
+            this.setState({resources: 'what'})
+        )
+    }
+
     render() {
         return(
             <div>
