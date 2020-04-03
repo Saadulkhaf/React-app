@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const ReasourceList = ({ resource }) => {
+const useResources = (resource) => {
     const [resources, setResources ] = useState([]);
-
-    const fetchResources = 
 
     useEffect (() => {
         (async (resource) => {
@@ -14,9 +12,22 @@ const ReasourceList = ({ resource }) => {
         })(resource)
     }, [resource])
 
+    return resources;
+}
+
+const ReasourceList = ({ resource }) => {
+    const resources = useResources(resource);
+    
+
     return (
         <div>
-            {resources.length}
+            <ul>
+                {resources.map(record => {
+                    return (
+                        <li key={record.id}>{record.title}</li>
+                    )
+                })}
+            </ul>
         </div>
     );
 }
