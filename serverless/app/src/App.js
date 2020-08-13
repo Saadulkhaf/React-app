@@ -1,5 +1,13 @@
 import React, { Component } from "react";
 import { Table, Button } from "reactstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faImage,
+  faThumbsUp,
+  faThumbsDown,
+  faMoneyCheckAlt,
+  faSearchDollar,
+} from "@fortawesome/free-solid-svg-icons";
 
 class App extends Component {
   state = {
@@ -37,7 +45,7 @@ class App extends Component {
   };
 
   remove(id) {
-    let updatedInvoices = [...this.state.invoices].filter((i) => i.id != id);
+    let updatedInvoices = [...this.state.invoices].filter((i) => i.id !== id);
     this.setState({ invoices: updatedInvoices });
   }
 
@@ -56,6 +64,7 @@ class App extends Component {
             className="btn btn-lg btn-success"
             onClick={() => this.remove(invoice.id)}
           >
+            <FontAwesomeIcon icon={faThumbsUp} />
             Ok
           </Button>
         </td>
@@ -64,6 +73,7 @@ class App extends Component {
             className="btn btn-lg btn-danger"
             onClick={() => this.remove(invoice.id)}
           >
+            <FontAwesomeIcon icon={faThumbsDown} />
             NOK
           </Button>
         </td>
@@ -72,6 +82,7 @@ class App extends Component {
             className="btn btn-lg btn-info"
             onClick={() => this.remove(invoice.id)}
           >
+            <FontAwesomeIcon icon={faMoneyCheckAlt} />
             50%
           </Button>
         </td>
@@ -80,6 +91,7 @@ class App extends Component {
             className="btn btn-lg btn-warning"
             onClick={() => this.remove(invoice.id)}
           >
+            <FontAwesomeIcon icon={faSearchDollar} />
             ??
           </Button>
         </td>
@@ -88,6 +100,7 @@ class App extends Component {
             className="btn btn-lg btn-info"
             onClick={() => this.remove(invoice.id)}
           >
+            <FontAwesomeIcon icon={faImage} />
             Image
           </Button>
         </td>
@@ -116,8 +129,8 @@ class App extends Component {
               </thead>
 
               <tbody>
-                {this.state.invoices === 0 ? (
-                  <td>All caught up! </td>
+                {this.state.invoices.length === 0 ? (
+                  <td colSpan="9">All caught up! </td>
                 ) : (
                   invoices
                 )}
