@@ -6,6 +6,7 @@
 .pnp.js
 node_modules/
 ../node_modules
+invoiceapp1-aws
 
 # testing
 /coverage
