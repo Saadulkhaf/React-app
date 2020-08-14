@@ -12,37 +12,43 @@ import {
 class App extends Component {
   state = {
     isLoading: false,
-    invoices: [
-      {
-        id: "100",
-        vendor: "Henkok",
-        amount: "$18,000",
-        invoice: "1122",
-        date: "15/05/1995",
-      },
-      {
-        id: "200",
-        vendor: "Henkok",
-        amount: "$18,000",
-        invoice: "1122",
-        date: "15/05/1995",
-      },
-      {
-        id: "300",
-        vendor: "Henkok",
-        amount: "$18,000",
-        invoice: "1122",
-        date: "15/05/1995",
-      },
-      {
-        id: "400",
-        vendor: "Henkok",
-        amount: "$18,000",
-        invoice: "1122",
-        date: "15/05/1995",
-      },
-    ],
+    invoices: [],
   };
+  //   id: "100",
+  //   vendor: "Henkok",
+  //   amount: "$18,000",
+  //   invoice: "1122",
+  //   date: "15/05/1995",
+  // },
+  // {
+  //   id: "200",
+  //   vendor: "Henkok",
+  //   amount: "$18,000",
+  //   invoice: "1122",
+  //   date: "15/05/1995",
+  // },
+  // {
+  //   id: "300",
+  //   vendor: "Henkok",
+  //   amount: "$18,000",
+  //   invoice: "1122",
+  //   date: "15/05/1995",
+  // },
+  // {
+  //   id: "400",
+  //   vendor: "Henkok",
+  //   amount: "$18,000",
+  //   invoice: "1122",
+  //   date: "15/05/1995",
+  // },
+
+  async componentDidMount() {
+    const response = await fetch(
+      "https://bvu3wh94o1.execute-api.us-east-2.amazonaws.com/Dev"
+    );
+    const body = await response.json();
+    this.setState({ invoices: body, isLoading: false });
+  }
 
   remove(id) {
     let updatedInvoices = [...this.state.invoices].filter((i) => i.id !== id);
